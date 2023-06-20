@@ -36,17 +36,17 @@ export class App extends Component {
   // }
 
     
-  filterContacts = (e, filteredContacts) => {
+  filterContacts = (e) => {
     this.setState({ filter: e.target.value });
     const { contacts, filter } = this.state;
-    return filteredContacts = contacts.filter(contact => {
+    return  contacts.filter(contact => {
       contact.name.toLowerCase().includes(filter.toLowerCase());
     });
   };
 
   render() {
     const { contacts } = this.state;
-    const filteredContacts = this.filterContacts;
+    // const filteredContacts = this.filterContacts;
     console.log(this.state);
     return (
       <div>
