@@ -31,17 +31,16 @@ export class App extends Component {
     }));
     document.querySelector('input').value = '';
   };
-  // searchInput = e => {
-  //   this.setState({ filter: e.target.value });
-  // }
+  searchInput = e => {
+    this.setState({ filter: e.target.value });
+  }
 
     
-  filterContacts = (e) => {
-    this.setState({ filter: e.target.value });
+  filterContacts = () => {
     const { contacts, filter } = this.state;
-    return  contacts.filter(contact => {
-      contact.name.toLowerCase().includes(filter.toLowerCase());
-    });
+    return  contacts.filter(contact => 
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
 
   render() {
@@ -81,7 +80,7 @@ export class App extends Component {
           <h2>Contacts</h2>
           <label>
             Find contacts by name
-            <input type="text"  onChange={this.filterContacts}></input>
+            <input type="text"  onChange={this.searchInput}></input>
           </label>
           <ul>
             {contacts.map(contact => (
