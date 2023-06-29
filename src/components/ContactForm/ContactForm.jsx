@@ -1,5 +1,6 @@
 import css from './ContactForm.module.css';
-import { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 
 export class ContactForm extends Component {
@@ -49,8 +50,12 @@ export class ContactForm extends Component {
             onChange={this.handleInput}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button style={{ 'marginTop': '15px'}}type="submit">Add contact</button>
       </form>
     );
   }
 };
+
+ContactForm.propTypes = {
+  addedContact: PropTypes.func,
+}
